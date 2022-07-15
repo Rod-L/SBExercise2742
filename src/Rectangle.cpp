@@ -1,8 +1,9 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle() {
-    std::cout << "Enter dimensions (x, y) of the rectangle:" << std::endl;
-    std::cin >> sideA >> sideB;
+Rectangle::Rectangle(double inCenterX, double inCenterY, ShapeColor inColor, double inSideA, double inSideB)
+: BaseShape(inCenterX, inCenterY, inColor) {
+    sideA = inSideA;
+    sideB = inSideB;
 }
 
 double Rectangle::square() const {
@@ -13,6 +14,13 @@ double Rectangle::boundingRectSquare() const {
     return this->square();
 };
 
-BoundingPoint* Rectangle::boundingRect() const {
-    return BaseShape::boundingRect(sideA / 2, sideB / 2);
+void Rectangle::describe() const {
+    std::cout << "Color of the shape is " << shapeColorName(this->color) << std::endl;
+    std::cout << "Square of the shape is " << this->square() << std::endl;
+    std::cout << "Square of bounding box of the shape is " << this->boundingRectSquare() << std::endl;
+    std::cout << "Bounding box of the shape is:" << std::endl;
+
+    BoundingPoint points[4];
+    this->boundingRect(sideA/2, sideB/2, points);
+    Rectangle::boundingRectRepr(points);
 }

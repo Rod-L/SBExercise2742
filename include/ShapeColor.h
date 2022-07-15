@@ -2,7 +2,7 @@
 
 #include <string>
 
-enum ShapeColor {
+enum ShapeColor: uint8_t {
     none,
     red,
     blue,

@@ -3,14 +3,14 @@
 #include "BaseShape.h"
 
 class Square: public BaseShape {
-    double side = 0;
+    double side;
 
 public:
-    Square();
+    Square(double inCenterX, double inCenterY, ShapeColor inColor, double inSide);
 
     double square() const;
 
     double boundingRectSquare() const;
 
-    BoundingPoint* boundingRect() const;
+    void describe() const;
 };

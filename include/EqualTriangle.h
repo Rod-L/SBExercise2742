@@ -3,15 +3,15 @@
 #include "BaseShape.h"
 
 class EqualTriangle: public BaseShape {
-    double side = 0;
-    double height = 0;
+    double side;
+    double height;
 
 public:
-    EqualTriangle();
+    EqualTriangle(double inCenterX, double inCenterY, ShapeColor inColor, double inSide);
 
     double square() const;
 
     double boundingRectSquare() const;
 
-    BoundingPoint* boundingRect() const;
+    void describe() const;
 };

@@ -3,15 +3,15 @@
 #include "BaseShape.h"
 
 class Rectangle: public BaseShape {
-    double sideA = 0;
-    double sideB = 0;
+    double sideA;
+    double sideB;
 
 public:
-    Rectangle();
+    Rectangle(double inCenterX, double inCenterY, ShapeColor inColor, double inSideA, double inSideB);
 
     double square() const;
 
     double boundingRectSquare() const;
 
-    BoundingPoint* boundingRect() const;
+    void describe() const;
 };

@@ -1,26 +1,12 @@
 #include "BaseShape.h"
 
-BaseShape::BaseShape() {
-    std::cout << "Enter coordinates of center of the shape (x, y):" << std::endl;
-    std::cin >> centerX >> centerY;
-
-    std::cout << "Enter color of the shape (none, red, green, blue):" << std::endl;
-    std::string colorName;
-    std::cin >> colorName;
-
-    switch(colorName[0]) {
-        case 'n': color = none;  break;
-        case 'r': color = red;   break;
-        case 'g': color = green; break;
-        case 'b': color = blue;  break;
-        default:
-            std::cout << "Unknown color name. Setting color to none." << std::endl;
-            color = none;
-    }
+BaseShape::BaseShape(double inCenterX, double inCenterY, ShapeColor inColor) {
+    centerX = inCenterX;
+    centerY = inCenterY;
+    color = inColor;
 }
 
-BoundingPoint* BaseShape::boundingRect(double shiftX, double shiftY) const {
-    auto points = new BoundingPoint[4];
+void BaseShape::boundingRect(double shiftX, double shiftY, BoundingPoint points[]) const {
     points[0].x = centerX - shiftX;
     points[0].y = centerY - shiftY;
 
@@ -32,8 +18,6 @@ BoundingPoint* BaseShape::boundingRect(double shiftX, double shiftY) const {
 
     points[3].x = centerX + shiftX;
     points[3].y = centerY - shiftY;
-
-    return  points;
 }
 
 void BaseShape::boundingRectRepr(BoundingPoint points[]) {

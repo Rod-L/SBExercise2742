@@ -5,19 +5,19 @@
 #include "ShapeColor.h"
 
 struct BoundingPoint{
-    double x = 0;
-    double y = 0;
+    double x;
+    double y;
 };
 
 class BaseShape {
 public:
-    double centerX = 0;
-    double centerY = 0;
-    ShapeColor color = none;
+    double centerX;
+    double centerY;
+    ShapeColor color;
 
-    BaseShape();
+    BaseShape(double inCenterX, double inCenterY, ShapeColor inColor);
 
-    BoundingPoint* boundingRect(double shiftX, double shiftY) const;
+    void boundingRect(double shiftX, double shiftY, BoundingPoint points[]) const;
 
     static void boundingRectRepr(BoundingPoint points[]);
 

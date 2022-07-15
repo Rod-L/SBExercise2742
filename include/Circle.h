@@ -3,14 +3,14 @@
 #include "BaseShape.h"
 
 class Circle: public BaseShape {
-    double radius = 0;
+    double radius;
 
 public:
-    Circle();
+    Circle(double inCenterX, double inCenterY, ShapeColor inColor, double inRadius);
 
     double square() const;
 
     double boundingRectSquare() const;
 
-    BoundingPoint* boundingRect() const;
+    void describe() const;
 };
